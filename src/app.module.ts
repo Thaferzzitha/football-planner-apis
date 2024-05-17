@@ -23,9 +23,7 @@ import { UserService } from './user/user.service';
       }),
       inject: [ConfigService],
     }),
-    MongooseModule.forFeature([
-       { name: User.name, schema: UserSchema }, 
-    ]),
+    MongooseModule.forFeature([{ name: User.name, schema: UserSchema }]),
   ],
   controllers: [AppController, UserController],
   providers: [AppService, UserService],
