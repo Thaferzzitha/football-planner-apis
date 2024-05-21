@@ -6,6 +6,9 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { User, UserSchema } from './user/models/user.model';
 import { UserController } from './user/user.controller';
 import { UserService } from './user/user.service';
+import { Team, TeamSchema } from './team/models/team.model';
+import { TeamController } from './team/team.controller';
+import { TeamService } from './team/team.service';
 
 @Module({
   imports: [
@@ -24,8 +27,9 @@ import { UserService } from './user/user.service';
       inject: [ConfigService],
     }),
     MongooseModule.forFeature([{ name: User.name, schema: UserSchema }]),
+    MongooseModule.forFeature([{ name: Team.name, schema: TeamSchema }]),
   ],
-  controllers: [AppController, UserController],
-  providers: [AppService, UserService],
+  controllers: [AppController, UserController, TeamController],
+  providers: [AppService, UserService, TeamService],
 })
 export class AppModule {}
