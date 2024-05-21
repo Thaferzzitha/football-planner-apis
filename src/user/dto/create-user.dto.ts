@@ -1,7 +1,13 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { IsEmail, IsNotEmpty, IsString } from 'class-validator';
+import { IsEmail, IsNotEmpty, IsObject, IsString } from 'class-validator';
+import { Types } from 'mongoose';
 
 export class CreateUserDto {
+  @ApiProperty({ example: '663cf3708aceb1d98e875f96' })
+  @IsObject()
+  @IsNotEmpty()
+  teamId: Types.ObjectId;
+
   @ApiProperty({ example: 'John' })
   @IsString()
   @IsNotEmpty()
